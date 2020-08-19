@@ -1,6 +1,7 @@
 package com.ssq.quickspringboot.bean;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -9,14 +10,13 @@ import java.util.Map;
 
 /**
  * 将配置文件中每一个属性的值，映射到这个组件中
- *
- * @ConfigurationProperties 告诉springboot 将本类中所有的属性与配置文件中的相关配置进行绑定
- *
+ * @ConfigurationProperties 告诉springboot 将本类中所有的属性与配置文件中的相关配置进行绑定(默认加载全局配置文件的值)
  * prefix = "person" 配置文件中哪个下面的所有属性进行一一映射
- *
- * 只有这个组件是容器中的组件，才能提供容器中的@ConfigurationProperties功能
+ * @Component  只有这个组件是容器中的组件，才能提供容器中的@ConfigurationProperties功能
+ * @PropertySource 加载指定配置文件的值，可加载多个
  *
  */
+//@PropertySource(value = {"classpath:person.properties"})
 @Component
 @ConfigurationProperties(prefix = "person")
 public class Person {

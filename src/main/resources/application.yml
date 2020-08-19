@@ -1,17 +1,35 @@
 server:
   port: 8081
 
+spring:
+  profiles:
+    active: dev
+---
 
-person:
-  age: 18
-  boss: false
-  birth: 2017/12/12
-  maps: {k1: v1,k2: v2}
-  lists:
-    - zhangsan
-    - lisi
-    - zhaoliu
-  dog:
-    name: 小狗
-    age: 2
-  last-name: 王哈哈
+
+server:
+  port: 8082
+spring:
+  profiles: dev
+---
+
+
+server:
+  port: 8083
+spring:
+  psofiles: prod
+#
+#
+#person:
+#  age: 18
+#  boss: false
+#  birth: 2017/12/12
+#  maps: {k1: v1,k2: v2}
+#  lists:
+#    - zhangsan
+#    - lisi
+#    - zhaoliu
+#  dog:
+#    name: 小狗
+#    age: 2
+#  last-name: 王哈哈
