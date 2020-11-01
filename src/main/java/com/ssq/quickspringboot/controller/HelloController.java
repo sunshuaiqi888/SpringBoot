@@ -2,10 +2,12 @@ package com.ssq.quickspringboot.controller;
 
 import com.ssq.quickspringboot.bean.Athelete;
 import com.ssq.quickspringboot.service.AtheleteService;
+import com.ssq.quickspringboot.service.HelloService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -23,8 +25,12 @@ import java.util.List;
 @RequestMapping("/hello")
 public class HelloController {
 
+    private static Logger log = LoggerFactory.getLogger(HelloController.class);
+
     @Autowired
     private AtheleteService service;
+    @Autowired
+    private HelloService se;
 
     @Value("${person.last-name}")
     private String name;
@@ -61,6 +67,8 @@ public class HelloController {
     @RequestMapping("/freemarker")
     public String helloWorld1(Model model){
         model.addAttribute("name","freemarker");
+        System.out.println("打印日志：");
+        log.info("输出内容了！");
         return "freemarker";
     }
 
@@ -77,6 +85,7 @@ public class HelloController {
         model.addAttribute("zptp","自拍偷拍");
         model.addAttribute("yzwm","亚洲无码");
         model.addAttribute("omjq","欧美激情");
+        log.info("看看都有啥好东西："+model.toString());
         return "thymeleaf";
     }
 
@@ -129,18 +138,39 @@ public class HelloController {
      * 1.redis
      * 2.jedis
      * 3.spring-data-redis
+     *
+     *  必须有redis服务支持
+     *
+     *
      */
     @Autowired
     private RedisTemplate<String,Object> redisTemplate;
     @RequestMapping("/redis")
-    @Test
+    @ResponseBody
     public Object bootRedis(){
 
         //RedisTemplate 方法有很多
         ValueOperations ops = redisTemplate.opsForValue();
-        ops.set("学习资料网址","localhost/hello/Thymeleaf");
+        ops.set("学习资料网址",service);
         return ops.get("学习资料网址");
     }
+
+
+    //########################################### Mybatis ##########################################//
+
+    /**
+     * springBoot整合MyBatis
+     *
+     * （注解用法可自行百度，不难，这里就不再赘述）
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/byId")
+    public Athelete selectAthById(String id){
+        return se.selectById(id);
+    }
+
 
 
 

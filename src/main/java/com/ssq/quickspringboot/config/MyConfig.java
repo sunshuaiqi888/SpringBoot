@@ -18,10 +18,10 @@ import java.util.Map;
 public class MyConfig {
 
     //将方法的返回值添加到容器中，容器中这个组件的id就是方法名
-    @Bean
-    public HelloService helloService(){
-        Map<Long, String> users = Collections.synchronizedMap(new HashMap<Long, String>());
-        System.out.println("======组件已添加进容器======");
-        return new HelloService();
-    }
+//    @Bean
+//    public HelloService helloServiceTest(){
+//        Map<Long, String> users = Collections.synchronizedMap(new HashMap<Long, String>());
+//        System.out.println("======组件已添加进容器======");
+//        return new HelloService();
+//    }
 }

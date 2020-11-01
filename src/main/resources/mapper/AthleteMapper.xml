@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssq.quickspringboot.dao.AthleteDAO">
+
+    <resultMap id="athbean" type="com.ssq.quickspringboot.bean.Athelete">
+        <result column="ath_id" jdbcType="VARCHAR" property="ath_id" />
+        <result column="ath_name" jdbcType="VARCHAR" property="name" />
+        <result column="ath_sex" jdbcType="VARCHAR" property="ath_sex" />
+        <result column="ath_birth" jdbcType="VARCHAR" property="ath_birth" />
+    </resultMap>
+
+    <select id="selectById" resultType="com.ssq.quickspringboot.bean.Athelete" resultMap="athbean">
+        select * from ad_athlete where ath_id = #{id}
+    </select>
+
+</mapper>

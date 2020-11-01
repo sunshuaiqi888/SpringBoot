@@ -11,6 +11,8 @@ import java.util.List;
 
 public interface AtheleteService extends JpaRepository<Athelete,String>,JpaSpecificationExecutor<Athelete>,Serializable {
 
+
+    //---------------------------------------- JPA ---------------------------------------------//
     //1.JPA已经实现了基本的CRUD操作，因此不需要我们重新在此定义实现CRUD的方法
     //2.复杂的数据库操作就需要自己定义
 
@@ -25,4 +27,7 @@ public interface AtheleteService extends JpaRepository<Athelete,String>,JpaSpeci
     // 而不是面向数据库表的查询，因此在hql语句中的对象名必须与实体类的类名一致，严格区分大小写
     @Query(value = "select * from ad_athlete ath where ath.ath_id=:ath_id",nativeQuery = true)
     Athelete findAthelete(@Param("ath_id") String ath_id);
+
+
+
 }

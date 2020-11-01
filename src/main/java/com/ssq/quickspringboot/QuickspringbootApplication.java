@@ -1,5 +1,6 @@
 package com.ssq.quickspringboot;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
@@ -9,6 +10,8 @@ import org.springframework.context.annotation.ImportResource;
  */
 //@ImportResource(locations = "classpath:bean.xml")  springboot推荐使用注解配置
 @SpringBootApplication
+//mapper接口类扫描包配置
+@MapperScan("com.ssq.quickspringboot.dao")
 public class QuickspringbootApplication {
 
 	public static void main(String[] args) {
