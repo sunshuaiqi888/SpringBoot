@@ -2,15 +2,14 @@ package com.ssq.quickspringboot;
 
 import com.ssq.quickspringboot.bean.Dog;
 import com.ssq.quickspringboot.bean.Person;
-import javafx.application.Application;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
 
 @SpringBootTest
-class QuickspringbootApplicationTests {
+public class QuickspringbootApplicationTests {
 
 	@Autowired
 	Person person;
@@ -21,16 +20,11 @@ class QuickspringbootApplicationTests {
 	ApplicationContext ioc;
 
 	@Test
-	void contextLoads() {
+	public void contextLoads() {
 
 		System.out.println(person);
 		System.out.println(dog);
 	}
 
-	@Test
-	void helloService(){
-		boolean flag = ioc.containsBean("helloService");
-		System.out.println(flag);
-	}
 
 }
