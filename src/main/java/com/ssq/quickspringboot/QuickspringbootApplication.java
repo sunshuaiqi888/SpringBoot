@@ -3,7 +3,6 @@ package com.ssq.quickspringboot;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ImportResource;
 
 /**
  *@SpringBootApplication 标注一个主程序类，说明这是一个sprongboot应用

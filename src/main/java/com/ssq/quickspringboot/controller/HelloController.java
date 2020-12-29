@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
 import java.util.List;
 
 // @RestController 这个类下的所有返回数据是json
@@ -168,6 +169,9 @@ public class HelloController {
     @ResponseBody
     @RequestMapping("/byId")
     public Athelete selectAthById(String id){
+
+        String str = new StringBuffer("al").append("baba").toString().intern();
+        System.out.println();
         return se.selectById(id);
     }
 
